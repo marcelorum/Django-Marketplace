@@ -36,7 +36,7 @@ def new_conversation(request, item_pk):
     else:
         form = ConversationMessageForm()
     
-    return render(request, 'conversation/new.html', {
+    return render(request, 'new.html', {
         'form': form
     })
 
@@ -44,7 +44,7 @@ def new_conversation(request, item_pk):
 def inbox(request):
     conversations = Conversation.objects.filter(members__in=[request.user.id])
 
-    return render(request, 'conversation/inbox.html', {
+    return render(request, 'inbox.html', {
         'conversations': conversations
     })
 
@@ -67,7 +67,7 @@ def detail(request, pk):
     else:
         form = ConversationMessageForm()
 
-    return render(request, 'conversation/detail.html', {
+    return render(request, 'detail.html', {
         'conversation': conversation,
         'form': form
     })
